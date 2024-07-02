@@ -32,7 +32,7 @@
 // Solution 1 [JAVA]
 // Brute Force Solution
 // Time Complexity: O(log(n)) // As the number of digits in a number n is proportional to it's log
-// Space Complexity: O(1) // AS the amount of variables in use are constant
+// Space Complexity: O(log(n)) // AS the amount of variables in use are constant but the valueOf function will parse each digit which increases the complexity
 
 
 class Solution {
@@ -43,5 +43,25 @@ class Solution {
             if(xs.charAt(i) != xs.charAt(len-i-1)) return false;
         }
         return true;
+    }
+}
+
+// Solution 2 [JAVA]
+// Brute Force Solution
+// Time Complexity: O(log(n)) // As the number of digits in a number n is proportional to it's log
+// Space Complexity: O(1) // AS the amount of variables in use are constant
+
+
+class Solution {
+    public boolean isPalindrome(int x) {
+        if(x < 0) return false;
+        int n = x;
+        int rev = 0;
+        while(n != 0){
+            rev = rev*10 + n%10;
+            n = n/10;
+        }
+        if(x == rev) return true;
+        return false;
     }
 }
